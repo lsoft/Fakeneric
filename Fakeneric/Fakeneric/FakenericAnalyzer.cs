@@ -22,14 +22,17 @@ namespace Fakeneric
         private static readonly LocalizableString ConstraintViolationTitle = new LocalizableResourceString(nameof(Resources.ConstraintViolationTitle), Resources.ResourceManager, typeof(Resources));
         private static readonly LocalizableString ConstraintViolationMessageFormat = new LocalizableResourceString(nameof(Resources.ConstraintViolationMessageFormat), Resources.ResourceManager, typeof(Resources));
         private static readonly LocalizableString ConstraintViolationDescription = new LocalizableResourceString(nameof(Resources.ConstraintViolationDescription), Resources.ResourceManager, typeof(Resources));
-
         public static readonly DiagnosticDescriptor ConstraintViolationDescriptor = new DiagnosticDescriptor(DiagnosticId, ConstraintViolationTitle, ConstraintViolationMessageFormat, Category, DiagnosticSeverity.Error, isEnabledByDefault: true, description: ConstraintViolationDescription);
 
         private static readonly LocalizableString ConstraintDeclarationTitle = new LocalizableResourceString(nameof(Resources.ConstraintDeclarationTitle), Resources.ResourceManager, typeof(Resources));
         private static readonly LocalizableString ConstraintDeclarationMessageFormat = new LocalizableResourceString(nameof(Resources.ConstraintDeclarationMessageFormat), Resources.ResourceManager, typeof(Resources));
         private static readonly LocalizableString ConstraintDeclarationDescription = new LocalizableResourceString(nameof(Resources.ConstraintDeclarationDescription), Resources.ResourceManager, typeof(Resources));
-
         public static readonly DiagnosticDescriptor ConstraintDeclarationDescriptor = new DiagnosticDescriptor(DiagnosticId, ConstraintDeclarationTitle, ConstraintDeclarationMessageFormat, Category, DiagnosticSeverity.Error, isEnabledByDefault: true, description: ConstraintDeclarationDescription);
+
+        private static readonly LocalizableString InternalErrorTitle = new LocalizableResourceString(nameof(Resources.InternalErrorTitle), Resources.ResourceManager, typeof(Resources));
+        private static readonly LocalizableString InternalErrorMessageFormat = new LocalizableResourceString(nameof(Resources.InternalErrorMessageFormat), Resources.ResourceManager, typeof(Resources));
+        private static readonly LocalizableString InternalErrorDescription = new LocalizableResourceString(nameof(Resources.InternalErrorDescription), Resources.ResourceManager, typeof(Resources));
+        public static readonly DiagnosticDescriptor InternalErrorDescriptor = new DiagnosticDescriptor(DiagnosticId, InternalErrorTitle, InternalErrorMessageFormat, Category, DiagnosticSeverity.Error, isEnabledByDefault: true, description: InternalErrorDescription);
     }
 
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
@@ -39,7 +42,11 @@ namespace Fakeneric
         {
             get
             {
-                return ImmutableArray.Create(DiagnosticDescriptors.ConstraintViolationDescriptor, DiagnosticDescriptors.ConstraintDeclarationDescriptor);
+                return ImmutableArray.Create(
+                    DiagnosticDescriptors.ConstraintViolationDescriptor,
+                    DiagnosticDescriptors.ConstraintDeclarationDescriptor,
+                    DiagnosticDescriptors.InternalErrorDescriptor
+                    );
             }
         }
 
@@ -57,39 +64,47 @@ namespace Fakeneric
         {
             var type = (INamedTypeSymbol)context.Symbol;
 
-            //if (!namedTypeSymbol.IsGenericType)
-            //{
-            //    return;
-            //}
+            try
+            {
+                //if (!namedTypeSymbol.IsGenericType)
+                //{
+                //    return;
+                //}
 
-            //CheckForConstraintDeclaration(context, type);
+                //CheckForConstraintDeclaration(context, type);
 
-            CheckForConstraintViolation(context, type);
+                CheckForConstraintViolation(context, type);
 
-            //for (var i = 0; i < baseType.TypeArguments.Length; i++)
-            //{
-            //    var isSubstituted = baseType.TypeArguments[i].TypeKind != TypeKind.TypeParameter;
-            //    if (isSubstituted)
-            //    {
-            //        //дженерик параметр замещен конкретным типом
-            //        //надо проанализировать, позволяют ли это констрейнты
+                //for (var i = 0; i < baseType.TypeArguments.Length; i++)
+                //{
+                //    var isSubstituted = baseType.TypeArguments[i].TypeKind != TypeKind.TypeParameter;
+                //    if (isSubstituted)
+                //    {
+                //        //дженерик параметр замещен конкретным типом
+                //        //надо проанализировать, позволяют ли это констрейнты
 
-            //        ITypeParameterSymbol aaaa = baseType.TypeParameters[1];
+                //        ITypeParameterSymbol aaaa = baseType.TypeParameters[1];
 
-            //        int f = 0;
-            //    }
-            //}
+                //        int f = 0;
+                //    }
+                //}
 
-            //int g = 0;
+                //int g = 0;
 
-            ////// Find just those named type symbols with names containing lowercase letters.
-            ////if (namedTypeSymbol.Name.ToCharArray().Any(char.IsLower))
-            ////{
-            ////    // For all such symbols, produce a diagnostic.
-            ////    var diagnostic = Diagnostic.Create(Rule, namedTypeSymbol.Locations[0], namedTypeSymbol.Name);
+                ////// Find just those named type symbols with names containing lowercase letters.
+                ////if (namedTypeSymbol.Name.ToCharArray().Any(char.IsLower))
+                ////{
+                ////    // For all such symbols, produce a diagnostic.
+                ////    var diagnostic = Diagnostic.Create(Rule, namedTypeSymbol.Locations[0], namedTypeSymbol.Name);
 
-            ////    context.ReportDiagnostic(diagnostic);
-            ////}
+                ////    context.ReportDiagnostic(diagnostic);
+                ////}
+            }
+            catch (Exception excp)
+            {
+                var diagnostic = Diagnostic.Create(DiagnosticDescriptors.InternalErrorDescriptor, type.Locations[0], excp.Message);
+                context.ReportDiagnostic(diagnostic);
+            }
         }
         private static void CheckForConstraintViolation(SymbolAnalysisContext context, INamedTypeSymbol type)
         {

@@ -12,15 +12,7 @@ namespace Fakeneric.Test
         public async Task NoConstructorTest()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -46,15 +38,7 @@ namespace TestProject
         public async Task PrivateConstructorTest()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -85,15 +69,7 @@ namespace TestProject
         public async Task PublicConstructorTest()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -120,15 +96,7 @@ namespace TestProject
         public async Task PrivateWrongConstructorTest()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -198,15 +166,7 @@ namespace TestProject
         public async Task PublicWrongPrivateCorrectConstructorTest()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -361,15 +321,7 @@ namespace TestProject
         public async Task HasConstructor1Test()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -396,15 +348,7 @@ namespace TestProject
         public async Task HasConstructor1WrongTest()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -435,15 +379,7 @@ namespace TestProject
         public async Task HasConstructor2Test()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -470,15 +406,7 @@ namespace TestProject
         public async Task HasConstructor2WrongTest()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -510,15 +438,7 @@ namespace TestProject
         public async Task HasConstructor3Test()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -545,15 +465,7 @@ namespace TestProject
         public async Task HasConstructor3WrongTest()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -585,15 +497,7 @@ namespace TestProject
         public async Task HasConstructor4Test()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -620,15 +524,7 @@ namespace TestProject
         public async Task HasConstructor4WrongTest()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -660,15 +556,7 @@ namespace TestProject
         public async Task HasConstructor5Test()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -695,15 +583,7 @@ namespace TestProject
         public async Task HasConstructor5WrongTest()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -735,15 +615,7 @@ namespace TestProject
         public async Task HasConstructor6Test()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -770,15 +642,7 @@ namespace TestProject
         public async Task HasConstructor6WrongTest()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -810,15 +674,7 @@ namespace TestProject
         public async Task HasConstructor7Test()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -845,15 +701,7 @@ namespace TestProject
         public async Task HasConstructor7WrongTest()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -885,15 +733,7 @@ namespace TestProject
         public async Task HasConstructor8Test()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -920,15 +760,7 @@ namespace TestProject
         public async Task HasConstructor8WrongTest()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{

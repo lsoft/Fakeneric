@@ -11,15 +11,7 @@ namespace Fakeneric.Test
 //        public async Task ImplementsSameTest()
 //        {
 //            var test = @$"
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-//using System.Diagnostics;
-//using Fakeneric.Infrastructure;
-
-//{await GetInfraAsync()}
+//{await GetPre()}
 
 //namespace TestProject
 //{{
@@ -36,6 +28,6 @@ namespace Fakeneric.Test
 //            await VerifyCS.VerifyAnalyzerAsync(test, expected);
 //        }
 
-    }
+}
 
 }

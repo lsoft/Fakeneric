@@ -141,4 +141,16 @@
     <value>Fakeneric constraint violation: {0}.</value>
     <comment>Fakeneric constraint violation.</comment>
   </data>
+  <data name="InternalErrorDescription" xml:space="preserve">
+    <value>Fakeneric internal error: {0}.</value>
+    <comment>Fakeneric internal error.</comment>
+  </data>
+  <data name="InternalErrorMessageFormat" xml:space="preserve">
+    <value>Fakeneric internal error: {0}.</value>
+    <comment>Fakeneric internal error.</comment>
+  </data>
+  <data name="InternalErrorTitle" xml:space="preserve">
+    <value>Fakeneric internal error: {0}.</value>
+    <comment>Fakeneric internal error.</comment>
+  </data>
 </root>

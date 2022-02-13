@@ -13,15 +13,7 @@ namespace Fakeneric.Test
         public async Task Implements1Test()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -44,15 +36,7 @@ namespace TestProject
         public async Task ImplementsWrongType1Test()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{
@@ -79,15 +63,7 @@ namespace TestProject
         public async Task Implements2Test()
         {
             var test = @$"
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
-using Fakeneric.Infrastructure;
-
-{await GetInfraAsync()}
+{await GetPre()}
 
 namespace TestProject
 {{

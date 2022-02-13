@@ -113,5 +113,32 @@ namespace Fakeneric {
                 return ResourceManager.GetString("ConstraintViolationTitle", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fakeneric internal error: {0}..
+        /// </summary>
+        internal static string InternalErrorDescription {
+            get {
+                return ResourceManager.GetString("InternalErrorDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fakeneric internal error: {0}..
+        /// </summary>
+        internal static string InternalErrorMessageFormat {
+            get {
+                return ResourceManager.GetString("InternalErrorMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fakeneric internal error: {0}..
+        /// </summary>
+        internal static string InternalErrorTitle {
+            get {
+                return ResourceManager.GetString("InternalErrorTitle", resourceCulture);
+            }
+        }
     }
 }
