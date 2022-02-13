@@ -1,7 +1,7 @@
-﻿using Fakeneric.Infrastructure;
+﻿using Fakeneric.Analyzer;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
-using VerifyCS = Fakeneric.Test.CSharpAnalyzerVerifier<Fakeneric.FakenericAnalyzer>;
+using VerifyCS = Fakeneric.Test.CSharpAnalyzerVerifier<Fakeneric.Analyzer.FakenericAnalyzer>;
 
 namespace Fakeneric.Test
 {

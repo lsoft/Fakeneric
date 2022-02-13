@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Text;
 
-namespace Fakeneric.Infrastructure
+namespace Fakeneric.Analyzer
 {
     internal interface IActualConstraint
     {

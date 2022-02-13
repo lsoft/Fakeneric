@@ -9,34 +9,40 @@
 
   <PropertyGroup>
     <PackageId>Fakeneric</PackageId>
-    <PackageVersion>1.0.0.0</PackageVersion>
+    <PackageVersion>0.1.0-alpha</PackageVersion>
     <Authors>ls</Authors>
-    <PackageLicenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</PackageLicenseUrl>
-    <PackageProjectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</PackageProjectUrl>
-    <PackageIconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</PackageIconUrl>
-    <RepositoryUrl>http://REPOSITORY_URL_HERE_OR_DELETE_THIS_LINE</RepositoryUrl>
+
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/lsoft/Fakeneric</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/lsoft/Fakeneric</RepositoryUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Description>Fakeneric</Description>
-    <PackageReleaseNotes>Summary of changes made in this release of the package.</PackageReleaseNotes>
-    <Copyright>Copyright</Copyright>
-    <PackageTags>Fakeneric, analyzers</PackageTags>
+    <Description>This is an Fakeneric constraints analyzer. It will guard you from implementing a C# generic against existing Fakeneric constraints.</Description>
+    <Copyright>(c) lsoft 2022</Copyright>
+    <PackageTags>generic, Fakeneric, analyzers</PackageTags>
+<!--
     <DevelopmentDependency>true</DevelopmentDependency>
+-->
     <NoPackageAnalysis>true</NoPackageAnalysis>
 
+<!--
     <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);_AddAnalyzersToOutput</TargetsForTfmSpecificContentInPackage>
+-->
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Fakeneric\Fakeneric.csproj" />
+    <ProjectReference Include="..\Fakeneric.Analyzer\Fakeneric.Analyzer.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="$(OutputPath)\Fakeneric.dll" Pack="true" PackagePath="lib/netstandard2.0" Visible="true" /> 
+    <None Include="$(OutputPath)\Fakeneric.Analyzer.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="true" /> 
     <None Update="tools\*.ps1" CopyToOutputDirectory="Always" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <Target Name="_AddAnalyzersToOutput">
     <ItemGroup>
-      <TfmSpecificPackageFile Include="$(OutputPath)\Fakeneric.dll" PackagePath="analyzers/dotnet/cs" />
+      <TfmSpecificPackageFile Include="$(OutputPath)\Fakeneric.Analyzer.dll" PackagePath="analyzers/dotnet/cs" />
     </ItemGroup>
   </Target>
 

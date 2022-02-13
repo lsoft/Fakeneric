@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fakeneric", "Fakeneric\Fakeneric\Fakeneric.csproj", "{98EB7147-6E7A-4C7B-A10A-DE25AD3E4951}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fakeneric.Analyzer", "Fakeneric\Fakeneric.Analyzer\Fakeneric.Analyzer.csproj", "{98EB7147-6E7A-4C7B-A10A-DE25AD3E4951}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fakeneric.Package", "Fakeneric\Fakeneric.Package\Fakeneric.Package.csproj", "{4149DE33-68FB-456A-AACF-67694121E3C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fakeneric.Test", "Fakeneric\Fakeneric.Test\Fakeneric.Test.csproj", "{AD298C8A-11DD-47FD-A94A-283B0C368BF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fakeneric.Test", "Fakeneric\Fakeneric.Test\Fakeneric.Test.csproj", "{AD298C8A-11DD-47FD-A94A-283B0C368BF3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fakeneric.Vsix", "Fakeneric\Fakeneric.Vsix\Fakeneric.Vsix.csproj", "{B162DB61-97EC-4D13-9BBA-FA49C8AF1EA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fakeneric", "Fakeneric\Fakeneric\Fakeneric.csproj", "{1315C842-3A3E-4798-96CC-3C58D17A0842}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B162DB61-97EC-4D13-9BBA-FA49C8AF1EA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B162DB61-97EC-4D13-9BBA-FA49C8AF1EA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B162DB61-97EC-4D13-9BBA-FA49C8AF1EA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1315C842-3A3E-4798-96CC-3C58D17A0842}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1315C842-3A3E-4798-96CC-3C58D17A0842}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1315C842-3A3E-4798-96CC-3C58D17A0842}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1315C842-3A3E-4798-96CC-3C58D17A0842}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

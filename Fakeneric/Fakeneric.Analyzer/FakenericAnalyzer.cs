@@ -9,7 +9,7 @@ using System.Collections.Immutable;
 using System.Linq;
 using System.Threading;
 
-namespace Fakeneric
+namespace Fakeneric.Analyzer
 {
     internal static class DiagnosticDescriptors
     {
@@ -132,8 +132,10 @@ namespace Fakeneric
 
             var constraints = AnalyzerHelper.ParseConstraints(baseType.AllInterfaces);
 
-            foreach (var constraint in constraints)
+            for (var c = 0; c < constraints.Length; c++)
             {
+                var constraint = constraints[c];
+
                 var success = constraint.IsSuccess(out var errorMessage);
                 if (!success)
                 {
@@ -163,7 +165,7 @@ namespace Fakeneric
             var constraints = AnalyzerHelper.ParseConstraints(type.Interfaces);
 
             var hashSet = new HashSet<string>();
-            for (var c = 0; c < constraints.Count; c++)
+            for (var c = 0; c < constraints.Length; c++)
             {
                 var constraint = constraints[c];
                 var uid = constraint.GetUniqueId();

@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Fakeneric\Fakeneric.csproj" />
+    <ProjectReference Include="..\Fakeneric.Analyzer\Fakeneric.Analyzer.csproj" />
   </ItemGroup>
 
 </Project>

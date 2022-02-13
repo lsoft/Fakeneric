@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Fakeneric
+namespace Fakeneric.Analyzer
 {
     public static class RoslynHelper
     {

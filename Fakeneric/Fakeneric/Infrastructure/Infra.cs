@@ -4,6 +4,14 @@
     {
     }
 
+#pragma warning disable IDE1006 // Naming Styles
+    public interface Where<TTarget, TConstraint>
+#pragma warning restore IDE1006 // Naming Styles
+        where TConstraint : WhereConstraint
+    {
+        //keep this place empty, we do not want to force user's derived classes to have an additional method/property/stuff because of Fakenerics
+    }
+
     #region Implements
 
     public abstract class ImplementsConstraint : WhereConstraint
@@ -94,13 +102,5 @@
     }
 
     #endregion
-
-#pragma warning disable IDE1006 // Naming Styles
-    public interface Where<TTarget, TConstraint>
-#pragma warning restore IDE1006 // Naming Styles
-        where TConstraint : WhereConstraint
-    {
-        //keep this place empty, we do not want to force user's derived classes to have an additional method/property/sruff because of Fakenerics
-    }
 
 }

@@ -1,18 +1,18 @@
 ﻿using Fakeneric.Infrastructure;
 using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 
-namespace Fakeneric
+namespace Fakeneric.Analyzer
 {
     internal static class AnalyzerHelper
     {
-        public static List<IActualConstraint> ParseConstraints(ImmutableArray<INamedTypeSymbol> interfaces)
+        public static ImmutableArray<IActualConstraint> ParseConstraints(ImmutableArray<INamedTypeSymbol> interfaces)
         {
-            var constraints = new List<IActualConstraint>();
 
             var whereInterfaces = interfaces
                 .Where(i =>
@@ -23,8 +23,10 @@ namespace Fakeneric
 
             if (whereInterfaces.Count == 0)
             {
-                return constraints;
+                return ImmutableArray<IActualConstraint>.Empty;
             }
+
+            var constraints = new List<IActualConstraint>();
 
             foreach (var whereInterface in whereInterfaces)
             {
@@ -70,7 +72,7 @@ namespace Fakeneric
                 }
             }
 
-            return constraints;
+            return constraints.ToImmutableArray();
         }
 
     }
