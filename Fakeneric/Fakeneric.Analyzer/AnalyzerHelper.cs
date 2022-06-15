@@ -57,6 +57,16 @@ namespace Fakeneric.Analyzer
                                 );
                             break;
                         }
+                    case "global::Fakeneric.Infrastructure.NotImplementsConstraint":
+                        {
+                            constraints.Add(
+                                new NotImplementsActualConstraint(
+                                    constrainedType,
+                                    (INamedTypeSymbol)predicate.TypeArguments[0]
+                                    )
+                                );
+                            break;
+                        }
                     case "global::Fakeneric.Infrastructure.HasConstructorConstraint":
                         {
                             constraints.Add(

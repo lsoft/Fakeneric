@@ -12,6 +12,18 @@
         //keep this place empty, we do not want to force user's derived classes to have an additional method/property/stuff because of Fakenerics
     }
 
+    #region NotImplements
+
+    public abstract class NotImplementsConstraint : WhereConstraint
+    {
+    }
+
+    public sealed class NotImplements<T> : NotImplementsConstraint
+    {
+    }
+
+    #endregion
+
     #region Implements
 
     public abstract class ImplementsConstraint : WhereConstraint

@@ -2,7 +2,13 @@
 
 Fakeneric is improved but faked compile-time generic constraints! It powered by Roslyn analyzer infrastructure.
 
-## Example
+## Constraints
+
+1. `Implements` - requires that `<T>` must be derived from class\interface. You can use multile such constraints in a single generic class, your `<T>` must be derived from all of these types.
+2. `NotImplements` - requires that `<T>` must NOT be derived from class\interface. You can use multile such constraints in a single generic class, your `<T>` must be NOT derived from all of these types.
+3. `HasConstructorWithNoParameter`, `HasConstructorWithParameter` - requires that `<T>` must have a non-private constructor with the appropriate arguments. You can use multile such constraints in a single generic class, all of these constuctors must exists.
+
+## Details
 
 Imagine we want to constraint `<T>` to have a constructor with `(int, short)` signature and to be derived from `interface IMyInterface { }`.
 
@@ -23,6 +29,7 @@ But with Fakenerics it's now possible. Instead of regular syntax, you need to at
 
     public class Base<T> :
         Where<T, Implements<IMyInterface>>,
+        //Where<T, NotImplements<MyUglyClassIDontWantToRememberAbout>>,
         Where<T, HasConstructorWithParameter<int, short>>
     {
     }
@@ -95,12 +102,6 @@ More advanced scenarios also possible:
     {
     }
 ```
-
-
-## Available constraints
-
-1. `Implements` - requires that `<T>` must be derived from class\interface. You can use multile such constraints in a single generic class, your `<T>` must be derived from all of these types.
-2. `HasConstructorWithNoParameter`, `HasConstructorWithParameter` - requires that `<T>` must have a non-private constructor with the appropriate arguments. You can use multile such constraints in a single generic class, all of these constuctors must exists.
 
 ## How to use
 

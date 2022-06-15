@@ -189,4 +189,66 @@ namespace Fakeneric.Analyzer
             return result;
         }
     }
+
+    internal class NotImplementsActualConstraint : IActualConstraint
+    {
+        public INamedTypeSymbol TypeParameter
+        {
+            get;
+        }
+        public INamedTypeSymbol ImplementType
+        {
+            get;
+        }
+
+        public NotImplementsActualConstraint(
+            INamedTypeSymbol typeParameter,
+            INamedTypeSymbol implementType
+            )
+        {
+            if (typeParameter is null)
+            {
+                throw new ArgumentNullException(nameof(typeParameter));
+            }
+
+            if (implementType is null)
+            {
+                throw new ArgumentNullException(nameof(implementType));
+            }
+
+            TypeParameter = typeParameter;
+            ImplementType = implementType;
+        }
+
+        public bool IsSuccess(out string errorMessage)
+        {
+            var canCast = TypeParameter.CanBeCastedTo(ImplementType);
+
+            if (canCast)
+            {
+                errorMessage = GetErrorMessage(
+                    TypeParameter.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat),
+                    ImplementType.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat)
+                    );
+            }
+            else
+            {
+                errorMessage = string.Empty;
+            }
+
+            return !canCast;
+        }
+
+        public static string GetErrorMessage(string from, string to)
+        {
+            return $"{from} can be casted to {to}, but it is forbidden.";
+        }
+
+        public string GetUniqueId()
+        {
+            var result = $"{nameof(NotImplementsActualConstraint)}-{TypeParameter.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat)}-{ImplementType.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat)}";
+
+            return result;
+        }
+    }
 }
